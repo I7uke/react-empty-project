@@ -1,0 +1,46 @@
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+$loaderSize: 150px;
+
+.componentContainer {
+    display: inline-block;
+}
+
+.loading {
+    width: $loaderSize;
+    height: $loaderSize;
+    display: inline-block;
+}
+
+.ladingText {
+    padding: 5px 10px 0 10px;
+    text-align: center;
+    font-weight: bold;
+    white-space: pre-wrap;
+}
+
+.loadingRing {
+    position: absolute;
+    width: $loaderSize;
+    height: $loaderSize;
+
+    &:first-child {
+        transform: skew(30deg, 20deg);
+    }
+
+    &:last-child {
+        transform: skew(-30deg, -20deg) scale(-1, 1);
+        svg {
+            animation-delay: -0.5s;
+        }
+    }
+
+    svg {
+        animation: rotate 1s linear infinite;
+        fill: rgba(0, 0, 0, 0.2);
+    }
+}

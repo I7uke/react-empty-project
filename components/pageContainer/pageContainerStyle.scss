@@ -1,0 +1,12 @@
+.pageContainer {
+    animation: animation_pageContainerOpacityIn 1.2s;
+}
+
+@keyframes animation_pageContainerOpacityIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

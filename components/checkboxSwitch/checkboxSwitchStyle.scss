@@ -1,0 +1,114 @@
+@use "sass:math";
+@import 'style/GLOBAL';
+
+$largeWidth: 80px;
+$largeHeight: math.div($largeWidth, 2);
+$largeRoundSize: $largeHeight - 8px;
+$largeRoundLeft: 4px;
+$largeRoundBottom: 4px;
+
+$defaultWidth: 48px;
+$defaultHeight: math.div($defaultWidth, 2);
+$defaultRoundSize: $defaultHeight - 6px;
+$defaultRoundLeft: 2px;
+$defaultRoundBottom: 3px;
+
+$smallWidth: 32px;
+$smallHeight: math.div($smallWidth, 2);
+$smallRoundSize: $smallHeight - 4px;
+$smallRoundLeft: 1px;
+$smallRoundBottom: 2px;
+
+@mixin mixin_sliderMove($move) {
+    -webkit-transform: translateX($move);
+    -ms-transform: translateX($move);
+    transform: translateX($move);
+}
+
+@mixin mixin_sliderRound($roundSize, $left, $bottom) {
+    border-radius: 50%;
+    position: absolute;
+    content: "";
+    width: $roundSize;
+    height: $roundSize;
+    left: $left;
+    bottom: $bottom;
+    background-color: $colorCommonWhite;
+    -webkit-transition:transform .4s;
+    transition:transform .4s;
+}
+
+.label {
+    position: relative;
+    display: inline-block;
+}
+
+.input {
+    display: none !important;
+}
+
+.slider {
+    border-radius: 34px;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $colorInputBorder;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.input:checked+.slider {
+    background-color: $colorPrimaryMain;
+}
+
+.input:focus+.slider {
+    box-shadow: 0 0 1px $colorPrimaryMain;
+}
+
+// Large
+.labelSizeLarge {
+    width: $largeWidth;
+    height: $largeHeight;
+}
+
+.sliderSizeLarge:before {
+    @include mixin_sliderRound($largeRoundSize, $largeRoundLeft, $largeRoundBottom);
+}
+
+.input:checked+.sliderSizeLarge:before {
+    $move: $largeWidth - $largeRoundSize - $largeRoundLeft * 2;
+    @include mixin_sliderMove($move);
+}
+
+// Default
+.labelSizeDefault {
+    width: $defaultWidth;
+    height: $defaultHeight;
+}
+
+.sliderSizeDefault:before {
+    @include mixin_sliderRound($defaultRoundSize, $defaultRoundLeft, $defaultRoundBottom);
+}
+
+.input:checked+.sliderSizeDefault:before {
+    $move: $defaultWidth - $defaultRoundSize - $defaultRoundLeft * 2;
+    @include mixin_sliderMove($move);
+}
+
+// Small
+.labelSizeSmall {
+    width: $smallWidth;
+    height: $smallHeight;
+}
+
+.sliderSizeSmall:before {
+    @include mixin_sliderRound($smallRoundSize, $smallRoundLeft, $smallRoundBottom);
+}
+
+.input:checked+.sliderSizeSmall:before {
+    $move: $smallWidth - $smallRoundSize - $smallRoundLeft * 2;
+    @include mixin_sliderMove($move);
+}

@@ -1,0 +1,72 @@
+@import 'style/GLOBAL';
+
+@mixin mixin_authorizationButton($bgColor, $textColor) {
+    background-color: $bgColor;
+    color: $textColor;
+    cursor: pointer;
+
+    &:hover {
+        background-color: lighten($bgColor, 10%);
+    }
+}
+
+@mixin mixin_loading($bgColor, $textColor) {
+    background-color: $bgColor;
+    color: $textColor;
+}
+
+
+.authorizationButtonPrimaryLoading {
+    @include mixin_loading($colorPrimaryMain, $colorPrimaryContrastText);
+}
+
+.authorizationButtonSecondaryLoading {
+    @include mixin_authorizationButton($colorSecondaryMain, $colorSecondaryContrastText);
+}
+
+.loadingStatus {
+    background-size: 100%;
+    background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.2) 25%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0));
+    background-size: 80px 80px;
+    animation: loading 1.5s linear infinite;
+    @include mixin_unselectableText;
+}
+
+.authorizationButtonPrimary {
+    @include mixin_authorizationButton($colorPrimaryMain, $colorPrimaryContrastText);
+}
+
+.authorizationButtonSecondary {
+    @include mixin_authorizationButton($colorSecondaryMain, $colorSecondaryContrastText);
+}
+
+.authorizationButton {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 5px;
+    $animationTime: 0.5s;
+    transition: background-color $animationTime, color $animationTime;
+    border: none;
+    font-size: $fontSizeButton1;
+    display: inline-block;
+    font-family: $fontFamilyCommon;
+}
+
+.buttonsContainer {
+    .authorizationButton:not(:first-child) {
+        margin-top: 10px;
+    }
+}
+
+@keyframes loading {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 80px 0;
+    }
+}

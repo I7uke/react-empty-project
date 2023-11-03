@@ -1,0 +1,42 @@
+@import 'style/GLOBAL';
+
+.image {
+    height: 200px;
+    width: 120px;
+    display: inline-block;
+}
+
+.imageBg{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.imageBgBase64 {
+    @include mixin_imageBackgroundBase64('testCat_4.jpg');
+}
+
+.imageBgUrl {
+    @include mixin_imageBackgroundUrl('testCat_2.jpg');
+}
+
+.svgBgUrl {
+    @include mixin_svgBackgroundUrl('testSvg_3.svg');
+}
+
+.svgBgBase64 {
+    @include mixin_svgBackgroundBase64('testSvg_1.svg');
+}
+
+.svgFontsContainer {
+    display: inline-block;
+    font-size: $fontSizeHeadline2;
+
+    &:hover {
+        color: red;
+    }
+}
+
+.svg {
+    height: 200px;
+}

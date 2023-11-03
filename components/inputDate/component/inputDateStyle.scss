@@ -1,0 +1,74 @@
+@import 'style/GLOBAL';
+
+@mixin mixin_inputCommon($borderColor, $bgColor) {
+    padding: 10px 16px 10px 16px;
+    border: 1px solid $borderColor;
+    background-color: $bgColor;
+}
+
+.input {
+    width: 200px;
+    box-sizing: border-box;
+    font-size: $fontSizeBody1;
+    outline: none;
+    border-radius: 6px;
+    $animationTime: 0.3s;
+    transition: background-color $animationTime, border-color $animationTime, box-shadow $animationTime;
+}
+
+.inputDefault {
+    @include mixin_inputCommon($colorInputBorder, $colorInputBackground);
+
+    &:focus {
+        border-color: $colorPrimaryMain;
+        box-shadow: 0px 0px 0px 1px $colorPrimaryMain;
+    }
+}
+
+.inputError {
+    @include mixin_inputCommon($colorErrorMain, $colorInputBackground);
+
+    &:focus {
+        border-color: $colorErrorDark;
+        box-shadow: 0px 0px 0px 1px $colorErrorDark;
+    }
+}
+
+.inputDisabled {
+    @include mixin_inputCommon($colorInputBorder, $colorInputBackgroundDisabled);
+}
+
+.inputSuccess {
+    @include mixin_inputCommon($colorSuccessMain, $colorInputBackground);
+
+    &:focus {
+        border-color: $colorSuccessDark;
+        box-shadow: 0px 0px 0px 1px $colorSuccessDark;
+    }
+}
+
+.buttonToday {
+    font-size: $fontSizeCaption;
+    color: $colorTextPrimary;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.buttonClearSelectedDate {
+    width: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+
+    @include mixin_svgBackgroundBase64('xClose.svg?fill=' + $colorInputBorder);
+
+    &:hover {
+        @include mixin_svgBackgroundBase64('xClose.svg?fill=' + darken($colorInputBorder, 10%));
+    }
+
+    &:after {
+        content: none;
+    }
+}

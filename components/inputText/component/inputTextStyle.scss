@@ -1,0 +1,58 @@
+@import 'style/GLOBAL';
+
+@mixin mixin_inputCommon($borderColor, $bgColor, $right: 16px) {
+    padding: 10px $right 10px 16px;
+    border: 1px solid $borderColor;
+    background-color: $bgColor;
+}
+
+@mixin mixin_inputIco($icoName, $icoColor) {
+    $inputIco:$icoName + '?fill=' + $icoColor;
+    @include mixin_svgBackgroundBase64($inputIco);
+    background-position: right 6px center;
+    background-repeat: no-repeat;
+    $icoSize: 30px;
+    background-size: $icoSize $icoSize;
+}
+
+.input {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: $fontSizeBody1;
+    outline: none;
+    border-radius: 6px;
+    $animationTime: 0.3s;
+    transition: background-color $animationTime, border-color $animationTime, box-shadow $animationTime;
+}
+
+.inputDefault {
+    @include mixin_inputCommon($colorInputBorder, $colorInputBackground);
+    &:focus {
+        border-color: $colorPrimaryMain;
+        box-shadow: 0px 0px 0px 1px $colorPrimaryMain;
+    }
+}
+
+.inputError {
+    @include mixin_inputCommon($colorErrorMain, $colorInputBackground, 36px);
+    @include mixin_inputIco('xMarkCircleFilled.svg', $colorErrorMain);
+
+    &:focus {
+        border-color: $colorErrorDark;
+        box-shadow: 0px 0px 0px 1px $colorErrorDark;
+    }
+}
+
+.inputDisabled {
+    @include mixin_inputCommon($colorInputBorder, $colorInputBackgroundDisabled);
+}
+
+.inputSuccess {
+    @include mixin_inputCommon($colorSuccessMain, $colorInputBackground, 36px);
+    @include mixin_inputIco('checkCircleFilled.svg', $colorSuccessMain);
+
+    &:focus {
+        border-color: $colorSuccessDark;
+        box-shadow: 0px 0px 0px 1px $colorSuccessDark;
+    }
+}

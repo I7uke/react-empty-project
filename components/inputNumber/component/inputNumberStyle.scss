@@ -1,0 +1,123 @@
+@import 'style/GLOBAL';
+
+$borderRadius: 6px;
+$btnsHandlerWrapWidth: 30px;
+
+@mixin mixin_inputCommon($borderColor, $bgColor) {
+    border: 1px solid $borderColor;
+    background-color: $bgColor;
+}
+
+.inputEditMode {
+    :global {
+        .rc-input-number-input {
+            padding: 10px $btnsHandlerWrapWidth + 4px 10px 16px;
+        }
+
+        .rc-input-number-handler-wrap {
+            position: absolute;
+            right: 0;
+            top: 0;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            height: 100%;
+            width: $btnsHandlerWrapWidth;
+        }
+
+        .rc-input-number-handler {
+            display: flex;
+            height: 50%;
+        }
+    }
+}
+
+.inputReadOnlyMode {
+    :global {
+        .rc-input-number-input {
+            padding: 10px 16px 10px 16px;
+        }
+
+        .rc-input-number-handler-wrap {
+            display: none;
+        }
+    }
+}
+
+.input {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+
+    :global {
+        .rc-input-number-input {
+            width: 100%;
+            box-sizing: border-box;
+            font-size: $fontSizeBody1;
+            outline: none;
+            border-radius: $borderRadius;
+            $animationTime: 0.3s;
+            transition: background-color $animationTime, border-color $animationTime, box-shadow $animationTime;
+        }
+    }
+}
+
+.inputDefault {
+    :global {
+        .rc-input-number-input {
+            @include mixin_inputCommon($colorInputBorder, $colorInputBackground);
+
+            &:focus {
+                border-color: $colorPrimaryMain;
+                box-shadow: 0px 0px 0px 1px $colorPrimaryMain;
+            }
+        }
+    }
+}
+
+.inputError {
+    :global {
+        .rc-input-number-input {
+            @include mixin_inputCommon($colorErrorMain, $colorInputBackground);
+
+            &:focus {
+                border-color: $colorErrorDark;
+                box-shadow: 0px 0px 0px 1px $colorErrorDark;
+            }
+        }
+    }
+}
+
+.inputDisabled {
+    :global {
+        .rc-input-number-input {
+            @include mixin_inputCommon($colorInputBorder, $colorInputBackgroundDisabled);
+        }
+    }
+}
+
+.buttonHandler {
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    color: $colorInputBorder;
+    font-size: $fontSizeBody1;
+    $animationTime: 0.5s;
+    transition: color $animationTime ease-in-out;
+    width: 100%;
+    height: 100%;
+    background-color: $colorPrimaryMain;
+    color: $colorPrimaryContrastText;
+
+    &:hover {
+        background-color: $colorPrimaryDark;
+    }
+}
+
+.buttonHandlerPlus {
+    border-radius: 0 $borderRadius 0 0;
+}
+
+.buttonHandlerMinus {
+    border-radius: 0 0 $borderRadius 0;
+}

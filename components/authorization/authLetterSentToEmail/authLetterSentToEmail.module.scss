@@ -1,0 +1,32 @@
+@import 'style/GLOBAL';
+
+.componentContainer {
+    animation: animation_showComponent 1s;
+}
+
+.imgContainer {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.svgSendEmail {
+    height: 100px;
+    fill: $colorPrimaryMain;
+}
+
+.helpText {
+    text-align: center;
+    font-size: $fontSizeHeadline6;
+    padding-bottom: 20px;
+}
+
+
+@keyframes animation_showComponent {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

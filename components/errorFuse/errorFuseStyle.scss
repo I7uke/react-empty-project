@@ -1,0 +1,27 @@
+@import 'style/GLOBAL';
+
+.componentContainer {
+  display: inline-block;
+  padding: 20px;
+}
+
+.oopsTextContainer {
+  font-size: $fontSizeCaption;
+  font-weight: bold;
+  text-align: center;
+}
+
+.errorTextContainer {
+  font-size: $fontSizeCaption;
+  text-align: center;
+}
+
+.errorImg {
+  $image:'smileySad.svg?fill=' +  $colorTextPrimary;
+  @include mixin_svgBackgroundBase64($image);
+  $imageSize: 100px;
+  height: $imageSize;
+  background-repeat: no-repeat;
+  background-size: $imageSize $imageSize;
+  background-position: center;
+}

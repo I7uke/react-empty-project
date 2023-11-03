@@ -1,0 +1,37 @@
+﻿$SVG_PATH_BASE64: "/img/svg_base64/";
+$SVG_PATH_URL: "/img/svg_url/";
+$IMG_PATH_URL: "/img/img_url/";
+$IMG_PATH_BASE64: "/img/img_base64/";
+
+//Запрещает выделять текст
+@mixin mixin_unselectableText {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin mixin_svgBackgroundUrl($svgImgName) {
+  $svgPath: $SVG_PATH_URL+$svgImgName;
+  background-image: url($svgPath);
+}
+
+@mixin mixin_svgBackgroundBase64($svgImgName) {
+  $svgPath: $SVG_PATH_BASE64+$svgImgName;
+  background-image: url($svgPath);
+}
+
+@mixin mixin_imageBackgroundUrl($imgName) {
+  $svgPath: $IMG_PATH_URL+$imgName;
+  background-image: url($svgPath);
+}
+
+@mixin mixin_imageBackgroundBase64($imgName) {
+  $svgPath: $IMG_PATH_BASE64+$imgName;
+  background-image: url($svgPath);
+}
+
+@mixin mixin_wordWrap {
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+}

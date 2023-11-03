@@ -1,0 +1,15 @@
+@import 'style/GLOBAL';
+
+.componentContainer {
+    padding: 20px 30px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid black;
+}
+
+.label {
+    font-size: $fontSizeHeadline5;
+}
+
+.content {
+    padding-top: 5px;
+}

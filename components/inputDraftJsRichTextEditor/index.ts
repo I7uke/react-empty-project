@@ -1,0 +1,1 @@
+export {default as InputDraftJsRichTextEditor} from './component/inputDraftJsRichTextEditor';

@@ -1,0 +1,10 @@
+@import 'style/GLOBAL';
+
+.buttonToday {
+    font-size: $fontSizeCaption;
+    color: $colorTextPrimary;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}

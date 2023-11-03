@@ -1,0 +1,29 @@
+@import "style/GLOBAL";
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: $colorTextPrimary;
+  font-family: $fontFamilyCommon;
+  font-size: $fontSizeBody1;
+}
+
+body {
+  background-color: $colorBackgroundBody;
+  font-size: $fontSizeBody1;
+}
+
+html > div[style] {
+  display: none !important;
+}
+
+// Полоса прокрутки
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $colorPrimaryMain;
+  border-radius: 20px;
+}

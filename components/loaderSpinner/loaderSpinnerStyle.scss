@@ -1,0 +1,40 @@
+@import 'style/GLOBAL';
+
+@function function_loaderBorder($borderColor) {
+  @return (10px solid $borderColor);
+}
+
+$emptySpinnerColor: $colorPrimaryLight;
+$spinnerColor: $colorPrimaryDark;
+$spinnerSize: 100px;
+
+.componentContainer {
+  display: inline-block;
+  text-align: center;
+  padding: 5px;
+}
+
+.loaderSpinner {
+  width: $spinnerSize;
+  height: $spinnerSize;
+
+  border-bottom: function_loaderBorder($emptySpinnerColor);
+  border-left: function_loaderBorder($emptySpinnerColor);
+  border-right: function_loaderBorder($emptySpinnerColor);
+  border-top: function_loaderBorder($spinnerColor);
+  border-radius: 50%;
+  animation: animation_loaderSpinner 1.5s linear infinite;
+  display: inline-block;
+}
+
+@keyframes animation_loaderSpinner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.ladingText {
+  padding: 5px 10px 0 10px;
+  text-align: center;
+  font-weight: bold;
+  white-space: pre-wrap;
+}

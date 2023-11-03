@@ -1,0 +1,1 @@
+export {default as InputRegistration} from './inputRegistration';
