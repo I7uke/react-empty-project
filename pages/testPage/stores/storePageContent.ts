@@ -1,7 +1,6 @@
 import { StoreComponentCheckbox } from "../../../components/checkbox";
 import { StoreComponentInputDate } from "../../../components/inputDate";
 import { StoreComponentInputDateRange } from "../../../components/inputDateRange";
-import { StoreComponentInputDraftJs } from "../../../components/inputDraftJsRichTextEditor/store/storeComponentInputDraftJs";
 import { StoreComponentInputNumber } from "../../../components/inputNumber";
 import { StoreComponentInputText } from "../../../components/inputText";
 import { StoreComponentInputTextarea } from "../../../components/inputTextarea";
@@ -19,7 +18,6 @@ export class StorePageContent {
     public readonly storeComponentInputNumber: StoreComponentInputNumber;
     public readonly storeComponentInputDate: StoreComponentInputDate;
     public readonly storeComponentInputDateRange: StoreComponentInputDateRange;
-    public readonly storeComponentInputDraftJs: StoreComponentInputDraftJs;
 
     constructor() {
         this.storeSelect = new StoreComponentSelect<SelectItem<number>>({
@@ -155,14 +153,5 @@ export class StorePageContent {
             },
             isResetErrorOnDataChange: true
         });
-
-        this.storeComponentInputDraftJs = new StoreComponentInputDraftJs({
-        
-            options: {
-                placeholder:'Hello!',
-                value: '<p><strong>Жирный текст!</strong></p><p><em>Курсив!</em></p><p><ins>Подчеркивание!</ins></p><ul><li>Элемент 1</li><li>Элемент 2</li><li>Элемент 3</li></ul>'
-            },
-            isResetErrorOnDataChange: true
-        })
     }
 }

@@ -25,7 +25,6 @@ import { TestInputNumber } from "../components/testInputNumber";
 import { TestInputTextarea } from "../components/testInputTextarea";
 import TestInputDate from "../components/testInputDate/testInputDate";
 import TestInputDateRange from "../components/testInputDateRange/testInputDateRange";
-import TestQuillRichTextEditor from "../components/testInputDraftJsRichTextEditor/testQuillRichTextEditor";
 
 
 function TestPage(props: SmartComponentProps<StoreTestPage>) {
@@ -114,10 +113,6 @@ function TestPage(props: SmartComponentProps<StoreTestPage>) {
 
             <TestBlock label={'Многострочное текстовое поле ввода:'}>
                 <TestInputTextarea store={props.store.storeContentPage.storeComponentInputTextarea} />
-            </TestBlock>
-
-            <TestBlock label={'Редактор форматированного текста:'}>
-                <TestQuillRichTextEditor store={props.store.storeContentPage.storeComponentInputDraftJs}/>
             </TestBlock>
 
             <TestBlock label={'Числовое поле ввода:'}>

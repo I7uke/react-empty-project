@@ -1,10 +1,9 @@
-import 'react-datepicker/dist/react-datepicker.min.css';
-import styles from './inputDateRangeStyle.scss';
-import DatePicker from "react-datepicker";
 import ru from "date-fns/esm/locale/ru";
-import InputMask from 'react-input-mask';
+import DatePicker from "react-datepicker";
+import 'react-datepicker/dist/react-datepicker.min.css';
 import { ErrorTextInput } from '../../../errorTextInput';
 import TodayButton from '../todayButton/todayButton';
+import styles from './inputDateRangeStyle.scss';
 
 type InputDateStatus = 'default' | 'disabled' | 'success' | 'error';
 

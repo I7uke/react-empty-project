@@ -1,10 +1,9 @@
-import 'react-datepicker/dist/react-datepicker.min.css';
-import styles from './inputDateStyle.scss';
-
-import DatePicker from "react-datepicker";
 import ru from "date-fns/esm/locale/ru";
+import DatePicker from "react-datepicker";
+import 'react-datepicker/dist/react-datepicker.min.css';
 import InputMask from 'react-input-mask';
 import { ErrorTextInput } from "../../errorTextInput";
+import styles from './inputDateStyle.scss';
 
 type InputDateStatus = 'default' | 'disabled' | 'success' | 'error';
 
