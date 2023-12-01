@@ -5,7 +5,7 @@ import selectErrorThemeConfig from "../config/selectErrorThemeConfig";
 import SelectNoOptionsMessage from "../config/selectNoOptionsMessage";
 import selectCloseMenuOnScroll from "../config/selectCloseMenuOnScroll";
 import SelectLoadingMessage from "../config/selectLoadingMessage";
-import { ErrorTextInput } from "../../errorTextInput";
+import { ErrorTextInput } from "../../editors/errorTextInput";
 
 type ErrorText = string | undefined;
 

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import RcInputNumber from 'rc-input-number';
-import { ErrorTextInput } from "../../errorTextInput";
+import { ErrorTextInput } from "../../editors/errorTextInput";
 import styles from './inputNumberStyle.scss';
 import SvgIcoChevronUp from '../../../img/svg_ico/chevronUp.svg';
 import SvgIcoChevronDown from '../../../img/svg_ico/chevronDown.svg';

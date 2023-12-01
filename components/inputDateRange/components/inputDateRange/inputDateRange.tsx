@@ -1,7 +1,7 @@
 import ru from "date-fns/esm/locale/ru";
 import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.min.css';
-import { ErrorTextInput } from '../../../errorTextInput';
+import { ErrorTextInput } from '../../../editors/errorTextInput';
 import TodayButton from '../todayButton/todayButton';
 import styles from './inputDateRangeStyle.scss';
 
