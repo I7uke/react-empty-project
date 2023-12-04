@@ -1,9 +1,9 @@
 import ru from "date-fns/esm/locale/ru";
 import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.min.css';
-import { ErrorTextInput } from '../../../editors/errorTextInput';
 import TodayButton from '../todayButton/todayButton';
 import styles from './inputDateRangeStyle.scss';
+import { ErrorText } from "../../../editors/errorText";
 
 type InputDateStatus = 'default' | 'disabled' | 'success' | 'error';
 
@@ -85,7 +85,7 @@ export default function InputDateRange(props: ComponentInputDateRangeProps) {
                     //customInput={<InputMask mask={'99.99.9999'} />}
                 />
             </div>
-            {props.errorText ? <ErrorTextInput errorText={props.errorText} /> : null}
+            {props.errorText ? <ErrorText errorText={props.errorText} /> : null}
         </div>
     );
 }

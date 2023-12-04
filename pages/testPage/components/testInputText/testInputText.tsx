@@ -1,7 +1,7 @@
 import React from "react";
 import { SmartComponentProps } from "../../../../models/smartComponentProps";
-import { InputTextSmart, StoreComponentInputText } from "../../../../components/inputText";
 import { v4 as uuidv4 } from 'uuid';
+import { InputTextSmart, StoreComponentInputText } from "../../../../components/editors/inputText";
 
 function TestInputText(props: SmartComponentProps<StoreComponentInputText>) {
     return (

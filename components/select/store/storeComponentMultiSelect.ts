@@ -181,7 +181,7 @@ export default class StoreComponentMultiSelect<TItem extends SelectItem<TValue>,
             return {
                 error: undefined,
                 isError: false,
-                value: cloneDeep(selectedItems)
+                result: cloneDeep(selectedItems)
             }
         }
 
@@ -194,7 +194,7 @@ export default class StoreComponentMultiSelect<TItem extends SelectItem<TValue>,
         return {
             error: defaultErrorText,
             isError: true,
-            value: undefined
+            result: undefined
         }
     }
 

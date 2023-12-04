@@ -1,6 +1,6 @@
 import React from "react";
-import { ErrorTextInput } from "../../errorTextInput";
-import styles from './inputTextareaStyle.scss';
+import styles from './styles.module.scss';
+import { ErrorText } from "../../errorText";
 
 type ErrorText = string | undefined;
 type InputTextStatus = 'default'
@@ -9,31 +9,33 @@ type InputTextStatus = 'default'
     | 'error';
 
 export interface ComponentInputTextareaProps {
-    readonly status?: InputTextStatus;
-    readonly errorText?: ErrorText;
-    readonly value?: string | undefined;
-    readonly eventChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-    readonly placeholder?: string | undefined;
-    readonly isReadOnly?: boolean;
-    readonly isAutoFocus?: boolean | undefined;
+    status?: InputTextStatus;
+    errorText?: ErrorText;
+    value?: string | undefined;
+    eventChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+    placeholder?: string | undefined;
+    isReadOnly?: boolean;
+    isAutoFocus?: boolean | undefined;
 }
 
-const cssClassStatus: Record<InputTextStatus, string> = {
-    default: styles.inputDefault,
-    disabled: styles.inputDisabled,
-    error: styles.inputError,
-    success: styles.inputSuccess
-};
-
-function InputTextarea(props: ComponentInputTextareaProps) {
-
-    let cssClass: string = styles.inputDefault;
-
-    if (typeof props.status === 'string') {
-        if (cssClassStatus.hasOwnProperty(props.status)) {
-            cssClass = cssClassStatus[props.status];
-        }
+function getCssClass(status: ComponentInputTextareaProps['status']): string {
+    if (status === 'disabled') {
+        return styles.inputDisabled;
     }
+
+    if (status === 'error') {
+        return styles.inputError;
+    }
+
+    if (status === 'success') {
+        return styles.inputSuccess;
+    }
+
+    return styles.inputDefault;
+}
+
+function InputTextarea(props: Readonly<ComponentInputTextareaProps>) {
+    const cssClass: string = getCssClass(props.status);
 
     return (
         <div>
@@ -46,7 +48,7 @@ function InputTextarea(props: ComponentInputTextareaProps) {
                 readOnly={props.isReadOnly}
                 autoFocus={props.isAutoFocus}
             />
-            {props.errorText ? <ErrorTextInput errorText={props.errorText} /> : null}
+            {props.errorText ? <ErrorText errorText={props.errorText} /> : null}
         </div>
     );
 }

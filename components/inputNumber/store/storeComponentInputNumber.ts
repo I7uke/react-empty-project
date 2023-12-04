@@ -180,7 +180,7 @@ export default class StoreComponentInputNumber {
             return {
                 error: defaultErrorText,
                 isError: true,
-                value: undefined
+                result: undefined
             }
         }
 
@@ -193,7 +193,7 @@ export default class StoreComponentInputNumber {
             return {
                 error: defaultErrorText,
                 isError: true,
-                value: undefined
+                result: undefined
             }
         }
 
@@ -205,7 +205,7 @@ export default class StoreComponentInputNumber {
         return {
             error: undefined,
             isError: false,
-            value: currentValue
+            result: currentValue
         }
     }
 

@@ -1,9 +1,9 @@
 import React, { useRef, useState } from "react";
 import RcInputNumber from 'rc-input-number';
-import { ErrorTextInput } from "../../editors/errorTextInput";
 import styles from './inputNumberStyle.scss';
 import SvgIcoChevronUp from '../../../img/svg_ico/chevronUp.svg';
 import SvgIcoChevronDown from '../../../img/svg_ico/chevronDown.svg';
+import { ErrorText } from "../../editors/errorText";
 
 type ErrorText = string | undefined;
 type InputNumberStatus = 'default'
@@ -95,7 +95,7 @@ function InputNumber(props: ComponentInputNumberProps) {
                 downHandler={isCantEdit ? undefined : downHandler}
                 step={props.step}
             />
-            {props.errorText ? <ErrorTextInput errorText={props.errorText} /> : null}
+            {props.errorText ? <ErrorText errorText={props.errorText} /> : null}
         </div>
     );
 }

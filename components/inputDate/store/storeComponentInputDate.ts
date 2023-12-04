@@ -184,7 +184,7 @@ export default class StoreComponentInputDate {
             return {
                 error: defaultErrorText,
                 isError: true,
-                value: undefined
+                result: undefined
             }
         }
 
@@ -196,7 +196,7 @@ export default class StoreComponentInputDate {
         return {
             error: undefined,
             isError: false,
-            value: validDate
+            result: validDate
         }
     }
 

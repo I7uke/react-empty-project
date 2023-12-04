@@ -1,11 +1,10 @@
 import { StoreComponentCheckbox } from "../../../components/checkbox";
+import { StoreComponentInputText } from "../../../components/editors/inputText";
+import { StoreComponentInputTextarea } from "../../../components/editors/inputTextarea";
 import { StoreComponentInputDate } from "../../../components/inputDate";
 import { StoreComponentInputDateRange } from "../../../components/inputDateRange";
 import { StoreComponentInputNumber } from "../../../components/inputNumber";
-import { StoreComponentInputText } from "../../../components/inputText";
-import { StoreComponentInputTextarea } from "../../../components/inputTextarea";
 import { SelectItem, StoreComponentMultiSelect, StoreComponentSelect } from "../../../components/select";
-
 
 export class StorePageContent {
     public readonly storeSelect: StoreComponentSelect<SelectItem<number>>;
@@ -27,14 +26,14 @@ export class StorePageContent {
                     return {
                         error: undefined,
                         isError: false,
-                        value: item
+                        result: item
                     }
                 }
 
                 return {
                     error: 'Поле не может быть пустым! Элемент не выбран',
                     isError: true,
-                    value: undefined
+                    result: undefined
                 }
             },
             options: {
@@ -51,14 +50,14 @@ export class StorePageContent {
                     return {
                         error: undefined,
                         isError: false,
-                        value: items
+                        result: items
                     }
                 }
 
                 return {
                     error: 'Поле не может быть пустым! Элементы не выбраны',
                     isError: true,
-                    value: undefined
+                    result: undefined
                 }
             },
             options: {
@@ -99,14 +98,14 @@ export class StorePageContent {
                     return {
                         error: 'Поле не может быть пустым!',
                         isError: true,
-                        value: undefined
+                        result: undefined
                     }
                 }
 
                 return {
                     error: undefined,
                     isError: false,
-                    value: value
+                    result: value
                 }
             }
         });
@@ -121,14 +120,14 @@ export class StorePageContent {
                     return {
                         error: 'Поле не может быть пустым!',
                         isError: true,
-                        value: undefined
+                        result: undefined
                     }
                 }
 
                 return {
                     error: undefined,
                     isError: false,
-                    value: value
+                    result: value
                 }
             }
         });

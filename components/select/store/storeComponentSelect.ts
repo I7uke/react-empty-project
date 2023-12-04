@@ -185,7 +185,7 @@ export default class StoreComponentSelect<TItem extends SelectItem<TValue>, TVal
             return {
                 error: undefined,
                 isError: false,
-                value: cloneDeep(selectedItem)
+                result: cloneDeep(selectedItem)
             }
         }
 
@@ -198,7 +198,7 @@ export default class StoreComponentSelect<TItem extends SelectItem<TValue>, TVal
         return {
             error: defaultErrorText,
             isError: true,
-            value: undefined
+            result: undefined
         }
     }
 

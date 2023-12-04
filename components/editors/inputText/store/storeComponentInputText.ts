@@ -1,10 +1,9 @@
 import { action, computed, makeObservable, observable } from "mobx";
-import { ValidatedValue } from "../../../models/validatedValue";
 import { ComponentInputTextProps } from "../component/inputText";
+import { ValidatedValue } from "../../../../models/validatedValue";
 
 type EventChangeValue = (value: string) => void;
 type FunctionValidationValue = (value?: string | null | undefined) => ValidatedValue<string>;
-
 type ComponentOptions = Omit<ComponentInputTextProps, 'eventChange'>;
 
 interface InitData {
@@ -29,54 +28,14 @@ interface InitData {
 export default class StoreComponentInputText {
 
     //#region Options
-    private _componentOptions_observable: ComponentOptions;
+    private _componentOptions_observable: Readonly<ComponentOptions>;
 
     public setOptions(params: Partial<ComponentOptions>) {
-
-        let {
-            errorText,
-            isAutoFocus,
-            isReadOnly,
-            placeholder,
-            status,
-            value
-        } = this._componentOptions_observable;
-
-        if (params.hasOwnProperty('errorText')) {
-            errorText = params.errorText;
-        }
-
-        if (params.hasOwnProperty('isAutoFocus')) {
-            isAutoFocus = params.isAutoFocus;
-        }
-
-        if (params.hasOwnProperty('isReadOnly')) {
-            isReadOnly = params.isReadOnly;
-        }
-
-        if (params.hasOwnProperty('placeholder')) {
-            placeholder = params.placeholder;
-        }
-
-        if (params.hasOwnProperty('status')) {
-            status = params.status;
-        }
-
-        if (params.hasOwnProperty('value')) {
-            value = typeof params.value === 'string' ? params.value : '';
-        }
-
-        this._componentOptions_observable = {
-            errorText,
-            isAutoFocus,
-            isReadOnly,
-            placeholder,
-            status,
-            value
-        };
+        const oldParams = this._componentOptions_observable;
+        this._componentOptions_observable = { ...oldParams, ...params };
     }
 
-    get options() {
+    get options(): Readonly<ComponentOptions> {
         return this._componentOptions_observable;
     }
     //#endregion
@@ -152,7 +111,7 @@ export default class StoreComponentInputText {
             return {
                 error: defaultErrorText,
                 isError: true,
-                value: undefined
+                result: undefined
             }
         }
 
@@ -165,7 +124,7 @@ export default class StoreComponentInputText {
             return {
                 error: defaultErrorText,
                 isError: true,
-                value: undefined
+                result: undefined
             }
         }
 
@@ -177,7 +136,7 @@ export default class StoreComponentInputText {
         return {
             error: undefined,
             isError: false,
-            value: currentValue
+            result: currentValue
         }
     }
 

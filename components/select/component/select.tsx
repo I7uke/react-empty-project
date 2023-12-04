@@ -5,7 +5,7 @@ import selectErrorThemeConfig from "../config/selectErrorThemeConfig";
 import SelectNoOptionsMessage from "../config/selectNoOptionsMessage";
 import selectCloseMenuOnScroll from "../config/selectCloseMenuOnScroll";
 import SelectLoadingMessage from "../config/selectLoadingMessage";
-import { ErrorTextInput } from "../../editors/errorTextInput";
+import { ErrorText } from "../../editors/errorText";
 
 type ErrorText = string | undefined;
 
@@ -40,7 +40,7 @@ function Select(props: ComponentSelectProps) {
                 isClearable={props.isClearable}
                 isSearchable={props.isSearchable}
             />
-            {props.errorText ? <ErrorTextInput errorText={props.errorText} /> : null}
+            {props.errorText ? <ErrorText errorText={props.errorText} /> : null}
         </div>
     );
 }

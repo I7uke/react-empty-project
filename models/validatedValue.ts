@@ -1,6 +1,5 @@
-
 interface BaseValidatedValue<TValue, TErrorText, TError extends boolean> {
-    readonly value: TValue;
+    readonly result: TValue;
     readonly error: TErrorText;
     readonly isError: TError;
 }

@@ -6,7 +6,7 @@ import selectErrorThemeConfig from "../config/selectErrorThemeConfig";
 import SelectNoOptionsMessage from "../config/selectNoOptionsMessage";
 import selectCloseMenuOnScroll from "../config/selectCloseMenuOnScroll";
 import SelectLoadingMessage from "../config/selectLoadingMessage";
-import { ErrorTextInput } from "../../editors/errorTextInput";
+import { ErrorText } from "../../editors/errorText";
 
 type ErrorText = string | undefined;
 
@@ -40,14 +40,14 @@ function MultiSelect(props: ComponentMultiSelectProps) {
                 loadingMessage={SelectLoadingMessage}
                 noOptionsMessage={SelectNoOptionsMessage}
                 closeMenuOnScroll={selectCloseMenuOnScroll}
-                isDisabled ={props.isDisabled}
+                isDisabled={props.isDisabled}
                 isLoading={props.isLoading}
                 isClearable={props.isClearable}
                 isSearchable={props.isSearchable}
                 closeMenuOnSelect={props.isCloseMenuOnSelect}
                 components={animatedComponents}
             />
-            {props.errorText ? <ErrorTextInput errorText={props.errorText}/> : null}
+            {props.errorText ? <ErrorText errorText={props.errorText} /> : null}
         </div>
     );
 }

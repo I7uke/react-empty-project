@@ -1,7 +1,7 @@
 import { observer } from "mobx-react";
-import { SmartComponentProps } from "../../../models/smartComponentProps";
 import StoreComponentInputText from "../store/storeComponentInputText";
 import InputText from "./inputText";
+import { SmartComponentProps } from "../../../../models/smartComponentProps";
 
 function InputTextSmart(props: SmartComponentProps<StoreComponentInputText>) {
     return (

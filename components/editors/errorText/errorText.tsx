@@ -1,14 +1,14 @@
 import React from "react";
-import styles from './errorTextInputStyle.scss';
+import styles from './style.module.scss';
 
 interface Props {
     readonly errorText: string;
 }
 
-function ErrorTextInput(props:Props){
+function ErrorText(props:Props){
     return(
         <div className={styles.errorTextContainer}>{props.errorText}</div>
     );
 }
 
-export default React.memo(ErrorTextInput);
+export default React.memo(ErrorText);

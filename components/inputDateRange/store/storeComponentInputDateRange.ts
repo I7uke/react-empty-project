@@ -191,7 +191,7 @@ export default class StoreComponentInputDateRange {
             return {
                 error: errorDateStart,
                 isError: true,
-                value: undefined
+                result: undefined
             };
         }
 
@@ -208,7 +208,7 @@ export default class StoreComponentInputDateRange {
             return {
                 error: errorDateEnd,
                 isError: true,
-                value: undefined
+                result: undefined
             };
         }
 
@@ -220,7 +220,7 @@ export default class StoreComponentInputDateRange {
         return {
             error: undefined,
             isError: false,
-            value:[validDateStart, validDateEnd]
+            result:[validDateStart, validDateEnd]
         }
     }
 
