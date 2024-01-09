@@ -1,6 +1,6 @@
 import styles from './styles.module.scss';
 
-interface PageContainerProps {
+interface Props {
     readonly children: React.ReactNode;
 }
 
@@ -9,9 +9,9 @@ interface PageContainerProps {
  * @param props 
  * @returns 
  */
-export default function PageContainer(props: PageContainerProps) {
+export default function PageContent(props: Props) {
     return (
-        <div className={styles.pageContainer}>
+        <div className={styles.pageContent}>
             {props.children}
         </div>
     );

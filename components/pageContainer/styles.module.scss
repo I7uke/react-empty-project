@@ -1,5 +1,8 @@
 .pageContainer {
     animation: animation_pageContainerOpacityIn 1.2s;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 @keyframes animation_pageContainerOpacityIn {

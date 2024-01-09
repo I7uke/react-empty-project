@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { Error404 } from "../../components/error404";
 import TestPage from "../../pages/testPage/page/testPage";
 import { StoreTestPage } from "../../pages/testPage/stores/storeTestPage";
+import HomePage from "../../pages/home/page/homePage";
 
 const storeTestPage = new StoreTestPage();
 
@@ -12,9 +13,15 @@ export default function ComponentPage() {
         <BrowserRouter>
             <Suspense fallback={<LoaderSuspense />}>
                 <Routes>
+
                     <Route
                         path={'/'}
                         index
+                        element={<HomePage/>}
+                    />
+
+                    <Route
+                        path={'/test'}
                         element={<TestPage store={storeTestPage}/>}
                     />
                     <Route
